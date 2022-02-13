@@ -1,0 +1,29 @@
+.admin_card {
+  width: 100%;
+  padding: 25px;
+  background: var(--primaryContainerColor);
+  margin: 100px 0px;
+  border-radius: 3px;
+  &.width-60 {
+    width: 60%;
+    margin: 100px auto;
+  }
+}
+
+.add_product_images_preview_container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  // justify-content: center;
+
+  & img {
+    width: 70px;
+    height: 70px;
+    margin-right: 15px;
+    border-radius: 2px;
+  }
+}
+
+// .admin_edit_site_item_container {
+
+// }

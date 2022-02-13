@@ -1,0 +1,199 @@
+.slider_container {
+  height: 85vh;
+  width: 100%;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+}
+
+
+.active_carousel {
+  display: inline-block;
+  animation: 1.5s fade-in;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.inactive_carousel {
+  display: none;
+}
+
+.slides {
+  height: 85vh;
+  width: 100%;
+  position: relative;
+}
+
+.slides_image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.slides_content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background: linear-gradient(to bottom, var(--primaryOverlayColor), var(--primaryOverlayColor));
+}
+
+.slides_author,
+.slides_title,
+.slides_desc {
+  text-align: center;
+  max-width: 35%;
+  @media screen and (max-width: $desktop-breakpoint) {
+    max-width: 70%;
+  }
+}
+
+
+@keyframes anim-title {
+  0% {
+    opacity: 0;
+    margin-right: -150px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+
+
+
+.slides_desc {
+  font-size: 14px;
+  color: $white;
+  text-align: right;
+  animation: 1s anim-title ease-in;
+  @media screen and (max-width: $desktop-breakpoint) {
+    font-size: 16px;
+  }
+}
+
+.slides_title {
+  font-size: 30px;
+  text-transform: uppercase;
+  color: $brown;
+  animation: .5s anim-title ease-in;
+  @media screen and (max-width: $desktop-breakpoint) {
+    font-size: 30px;
+  }
+}
+
+@keyframes anim-auth {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.slides_author {
+  font-size: 16px;
+  display: flex;
+  color: $white;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  animation: 2s anim-auth ease-in;
+  @media screen and (max-width: $desktop-breakpoint) {
+    font-size: 13px;
+  }
+}
+
+.slides_author_bar {
+  width: 50px;
+  height: 2px;
+  display: inline-block;
+  background-color: $brown;
+  margin-right: 25px;
+}
+
+
+.slides_btn {
+  margin-top: 50px;
+  @media screen and (max-width: $desktop-breakpoint) {
+    margin-top: 30px;
+  }
+}
+
+.slider_arrows_container {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prev_arrow,
+.next_arrow {
+  cursor: pointer;
+  width: auto;
+  padding: 0.7rem;
+  margin-top: -2rem;
+  margin-left: 10px;
+  color: var(--primaryTextColor);
+  opacity: 0.3;
+  border-radius: 50px;
+  transition: 0.4s ease-in;
+
+  &:hover {
+    color: var(--primaryTextColor);
+    background-color: $brown;
+    opacity: 1;
+  }
+
+  @media screen and (max-width: $desktop-breakpoint) {
+    margin-left: 2px;
+  }
+}
+
+.next_arrow {
+  right: 0;
+  margin-left: 0px;
+  margin-right: 10px;
+
+  @media screen and (max-width: $desktop-breakpoint) {
+    margin-right: 2px;
+  }
+}
+
+.carousel_dots_container {
+  position: absolute;
+  display: flex;
+  top: 95%;
+  margin-left: 25px;
+  z-index: 100;
+}
+
+.carousel_dot {
+  cursor: pointer;
+  height: 1rem;
+  width: 1rem;
+  margin: 0 3px;
+  background-color: var(--primaryShadowColor);
+  border-radius: 50%;
+  display: inline-block;
+  transition: 0.4s ease-in;
+}
+
+.active_carousel_dot {
+  background-color: $brown;
+}

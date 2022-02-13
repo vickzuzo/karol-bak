@@ -1,0 +1,57 @@
+.nft_container {
+  width: 100%;
+  padding: 100px;
+  background: var(--primaryContainerColor);
+  border-radius: 5px;
+  margin: 100px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.nft_text {
+  font-size: 100px;
+  margin-bottom: 20px;
+  color: $brown;
+  animation: shine 3s linear infinite;
+  background: linear-gradient(90deg, var(--primaryContainerColor), $brown, var(--primaryContainerColor));
+  letter-spacing: 5px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  position: relative;
+}
+
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
+}
+
+.nft_content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  & h1 {
+    color: $brown;
+    font-size: 30px;
+    @media screen and (max-width: $desktop-breakpoint) {
+      font-size: 25px;
+    }
+  }
+  & p {
+    font-size: 17px;
+    color: var(--secondaryTextColor2);
+    text-align: center;
+    @media screen and (max-width: $desktop-breakpoint) {
+      font-size: 12px;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.painting_container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.painting_item_holder {
+  cursor: pointer;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--primaryShadowColor);
+  padding: 20px;
+  border-radius: 8px;
+  @media screen and (max-width: $desktop-breakpoint) {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+.painting_icon {
+  color: $brown;
+}
+
+.painting_item_title {
+  font-size: 20px;
+  text-align: center;
+}
+
+.painting_item_desc {
+  font-size: 14px;
+  color: var(--secondaryTextColor2);
+}

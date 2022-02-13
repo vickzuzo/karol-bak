@@ -1,0 +1,32 @@
+.modal_container {
+  width: 50%;
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background: var(--primaryContainerColor);
+  border-radius: 3px;
+  @media screen and (max-width: $desktop-breakpoint) {
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: scroll;
+  }
+}
+
+.modal_title {
+  font-size: 20px;
+  color: $brown;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal_content {
+  padding: 40px;
+}
+
+div.ReactModal__Overlay.ReactModal__Overlay--after-open {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}

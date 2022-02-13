@@ -1,0 +1,51 @@
+.review_overrall {
+  overflow-x: scroll;
+
+  @media screen and (min-width: $desktop-breakpoint) {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+  }
+}
+
+.review_container {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.review_table_header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: $brown;
+  color: var(--primaryTextColor);
+}
+
+.review_table_header,
+.review_table_data {
+  border: 1px solid var(--primaryBorderColor);
+  padding: 10px;
+  font-size: 14px;
+}
+
+.review_table_row {
+  padding: 0px 10px;
+  &:nth-child(even) {
+    background-color: var(--primaryContainerColor);
+  }
+  &:hover {
+    background-color: var(--primaryHoverColor);
+  }
+}
+
+.table_images_container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  & img {
+    width: 40px;
+    margin-right: 8px;
+  }
+}
