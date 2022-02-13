@@ -3,6 +3,7 @@ const express = require("express");
 const errorHandler = require("./middlewares/error");
 const connectDB = require("./config/db");
 const cors = require("cors");
+const path = require("path");
 const morgan = require("morgan");
 // Connect to database
 
@@ -38,7 +39,6 @@ if (process.env.NODE_ENV === "production") {
 const server = app.listen(PORT, () =>
   console.log(`Server running on PORT: ${PORT}`)
 );
-
 
 process.on("unhandledRejection", (err, promise) => {
   console.log(`Logged Error: ${err}`);
