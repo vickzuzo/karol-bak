@@ -14,7 +14,6 @@ const GalleryScreen = (props) => {
   const { id } = props.match.params;
   useEffect(() => {
     props.fetchGalleyData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const data = props.gallery.filter(({ category }) => category === id);

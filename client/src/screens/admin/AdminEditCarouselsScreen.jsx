@@ -46,7 +46,6 @@ const AdminEditCarouselsScreen = (props) => {
 
   useEffect(() => {
     props.fetchSiteData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onSubmit = async (e) => {

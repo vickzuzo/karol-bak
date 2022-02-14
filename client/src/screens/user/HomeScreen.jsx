@@ -23,7 +23,6 @@ const HomeScreen = (props) => {
   useEffect(() => {
     props.fetchSiteData();
     props.fetchGalleyData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

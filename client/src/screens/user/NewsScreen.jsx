@@ -15,7 +15,6 @@ import {
 const NewsScreen = (props) => {
   useEffect(() => {
     props.fetchNewsData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

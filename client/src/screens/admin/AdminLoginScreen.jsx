@@ -19,7 +19,6 @@ const AdminLoginScreen = (props) => {
     if (props.user.token !== "") {
       History.push("/admin/products");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleEmailChange = (e) => {

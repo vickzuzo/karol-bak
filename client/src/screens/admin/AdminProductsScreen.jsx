@@ -80,7 +80,6 @@ const AdminProductsScreen = (props) => {
 
   useEffect(() => {
     fetchAllProducts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onSubmit = async (e) => {
