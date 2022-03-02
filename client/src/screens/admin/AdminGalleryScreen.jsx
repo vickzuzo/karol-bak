@@ -27,6 +27,7 @@ const AdminGalleryScreen = (props) => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [showAddGalleryForm, setShowAddGalleryForm] = useState(false);
+  const [feature, setFeature] = useState(false);
 
   const [selectedImage, setSelectedImage] = useState();
 
@@ -84,6 +85,7 @@ const AdminGalleryScreen = (props) => {
       formdata.append("description", description);
       formdata.append("category", category);
       formdata.append("image", selectedImage);
+      formdata.append("feature", feature);
 
       await apiClient.post("/api/gallery/create_gallery", formdata);
       props.setSuccess("category Added Successfully");
@@ -192,6 +194,20 @@ const AdminGalleryScreen = (props) => {
                   type="file"
                   title="Gallery Image"
                 />
+                <label
+                  style={{
+                    marginBottom: "20px",
+                    display: "block",
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    defaultChecked={feature}
+                    onChange={() => setFeature(!feature)}
+                    style={{marginRight: '10px'}}
+                  />
+                  Feature Gallery
+                </label>
                 <div className="input_container">
                   <button className="input_button" onClick={onSubmit}>
                     {props.site.loading ? (

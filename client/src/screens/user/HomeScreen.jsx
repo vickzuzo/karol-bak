@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import {
   AboutPainting,
@@ -20,9 +20,18 @@ import {
 } from "../../state/actions";
 
 const HomeScreen = (props) => {
+  const filterGallery = () => {
+    return props.gallery.filter(({ feature }) => feature === true);
+  };
+
+  const [featured, setFeatured] = useState([]);
+
+  console.log(featured);
+
   useEffect(() => {
     props.fetchSiteData();
     props.fetchGalleyData();
+    setFeatured(filterGallery());
   }, []);
 
   return (
@@ -34,8 +43,14 @@ const HomeScreen = (props) => {
       </div>
       <div className="pageBody_80">
         <div className="gallery_container">
-          {props.gallery.map((gallery, index) => (
-            <GalleryItem data={gallery} index={index} />
+          {featured.map((gallery, index) => (
+            <div
+              key={index}
+              className="gallery_item_container"
+              key={props.index}
+            >
+              <img src={gallery.image} alt="gallery_image" />
+            </div>
           ))}
         </div>
       </div>

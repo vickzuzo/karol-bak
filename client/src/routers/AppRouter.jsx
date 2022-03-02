@@ -7,10 +7,12 @@ import { Toggle } from "../components";
 import {
   AdminEditCarouselsScreen,
   AdminEditSiteDetailsScreen,
+  AdminGalleryScreen,
   // ADMIN IMPORTS
   AdminLoginScreen,
   AdminNewsScreen,
   AdminProductsScreen,
+  AllGalleryScreen,
   BiographyScreen,
   GalleryScreen,
   GalleryScreenMobile,
@@ -21,7 +23,6 @@ import {
   ShopScreen,
   ViewNewsScreen,
 } from "../screens";
-import AdminGalleryScreen from "../screens/admin/AdminGalleryScreen";
 import { setTheme } from "../state/actions";
 import ScrollToTop from "../utils/ScrollToTop";
 import PrivateRoute from "./PrivateRoute";
@@ -68,8 +69,9 @@ const AppRouter = (props) => {
           {/** =============== GENERAL SCREEN ROUTES STARTS HERE =============== */}
           <Route path="/" component={HomeScreen} exact={true} />
           <Route path="/biography" component={BiographyScreen} />
-          <Route path="/gallery/category/:id" component={GalleryScreen} />
-          <Route path="/gallery" component={GalleryScreenMobile} exact />
+          <Route path="/gallery" component={AllGalleryScreen} exact />
+          <Route path="/gallery-m" component={GalleryScreenMobile} exact />
+          <Route path="/gallery/category/:id" component={GalleryScreen} exact />
           <Route path="/shop" component={ShopScreen} />
           <Route path="/nft" component={NftScreen} />
           <Route path="/news" component={NewsScreen} exact />

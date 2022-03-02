@@ -4,6 +4,10 @@ import { ic_close } from "react-icons-kit/md/ic_close";
 import { ic_menu } from "react-icons-kit/md/ic_menu";
 import { History } from "../../routers/AppRouter";
 import Toggle from "../toggler/Toggle";
+import imageDark from "../../assets/images/KBlogo-black.png";
+import imageLight from "../../assets/images/KBlogo-white.png";
+import imageBrown from "../../assets/images/KBlogo-brown.png";
+import { connect } from "react-redux";
 
 const HeaderMobile = (props) => {
   const { siteTheme, setSiteTheme } = props;
@@ -23,17 +27,20 @@ const HeaderMobile = (props) => {
   }, []);
 
   const openMenu = () => {
-    document.getElementById("menuToggle").style.width = "65%";
+    document.getElementById("menuToggle").style.width = "55%";
     document.getElementById("menuToggle").style.height = "100vh";
+    document.getElementById("menuOverlay").style.height = "100vh";
+    document.getElementById("menuOverlay").style.width = "100%";
     setMenuStatus(true);
   };
 
   const closeMenu = () => {
     document.getElementById("menuToggle").style.width = "0px";
     document.getElementById("menuToggle").style.height = "0px";
+    document.getElementById("menuOverlay").style.width = "0px";
+    document.getElementById("menuOverlay").style.height = "0px";
     setMenuStatus(false);
   };
-  const logo = "https://karolbak.com/wp-content/uploads/2020/05/logo_www.png";
   return (
     <div className="show_on_mobile">
       <div
@@ -44,7 +51,17 @@ const HeaderMobile = (props) => {
         }
       >
         <div className="header_mobile_container">
-          <img src={logo} className="logo_img" alt="Logo" />
+          <img
+            src={
+              props.site.theme === true
+                ? imageLight
+                : headerChange === false
+                ? imageBrown
+                : imageDark
+            }
+            className="logo_img"
+            alt="Logo"
+          />
           <div style={{ display: "flex" }}>
             <div className="header_icon__container">
               <Icon
@@ -58,51 +75,57 @@ const HeaderMobile = (props) => {
             </div>
           </div>
         </div>
-        <div className="header_mobile__menu_section" id="menuToggle">
-          <div
-            className="header_mobile__menu_container"
-            onClick={() => History.push("/")}
-          >
-            <p>Home</p>
-          </div>
+        <div
+          className="header_mobile_menu_overlay"
+          id="menuOverlay"
+          onClick={closeMenu}
+        >
+          <div className="header_mobile__menu_section" id="menuToggle">
+            <div
+              className="header_mobile__menu_container"
+              onClick={() => History.push("/")}
+            >
+              <p>Home</p>
+            </div>
 
-          <div
-            className="header_mobile__menu_container"
-            onClick={() => History.push("/news")}
-          >
-            <p>News</p>
-          </div>
-          <div
-            className="header_mobile__menu_container"
-            onClick={() => History.push("/biography")}
-          >
-            <p>Biography</p>
-          </div>
-          <div
-            className="header_mobile__menu_container"
-            onClick={() => History.push("/gallery")}
-          >
-            <p>Gallery</p>
-          </div>
-          <div
-            className="header_mobile__menu_container"
-            onClick={() => History.push("/nft")}
-          >
-            <p>NFTs</p>
-          </div>
-          <div
-            className="header_mobile__menu_container"
-            onClick={() => History.push("/shop")}
-          >
-            <p>Shop</p>
-          </div>
+            <div
+              className="header_mobile__menu_container"
+              onClick={() => History.push("/news")}
+            >
+              <p>News</p>
+            </div>
+            <div
+              className="header_mobile__menu_container"
+              onClick={() => History.push("/biography")}
+            >
+              <p>Biography</p>
+            </div>
+            <div
+              className="header_mobile__menu_container"
+              onClick={() => History.push("/gallery")}
+            >
+              <p>Gallery</p>
+            </div>
+            <div
+              className="header_mobile__menu_container"
+              onClick={() => History.push("/nft")}
+            >
+              <p>NFTs</p>
+            </div>
+            <div
+              className="header_mobile__menu_container"
+              onClick={() => History.push("/shop")}
+            >
+              <p>Shop</p>
+            </div>
 
-          <div className="header_mobile__menu_container">
-            <Toggle
-              checked={siteTheme}
-              onChange={setSiteTheme}
-              aria_label={siteTheme === true ? "Dark mode" : "Light mode"}
-            />
+            <div className="header_mobile__menu_container">
+              <Toggle
+                checked={siteTheme}
+                onChange={setSiteTheme}
+                aria_label={siteTheme === true ? "Dark mode" : "Light mode"}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -110,4 +133,8 @@ const HeaderMobile = (props) => {
   );
 };
 
-export default HeaderMobile;
+const mapStateToProps = (state) => ({
+  site: state.site,
+});
+
+export default connect(mapStateToProps)(HeaderMobile);

@@ -3,9 +3,11 @@ import Icon from "react-icons-kit";
 import { facebookSquare } from "react-icons-kit/fa/facebookSquare";
 import { instagram } from "react-icons-kit/fa/instagram";
 import { twitterSquare } from "react-icons-kit/fa/twitterSquare";
+import logo from "../../assets/images/KBlogo-brown.png";
+import { History } from "../../routers/AppRouter";
+import { connect } from "react-redux";
 
-const Footer = () => {
-  const logo = "https://karolbak.com/wp-content/uploads/2020/05/logo_www.png";
+const Footer = (props) => {
   return (
     <div className="footer_container">
       <div className="pageBody_80">
@@ -14,9 +16,30 @@ const Footer = () => {
             <img src={logo} alt="logo" className="footer_logo_img" />
 
             <div className="footer_social_links_holder">
-              <Icon icon={facebookSquare} className="facebook" size={30} />
-              <Icon icon={instagram} className="instagram" size={30} />
-              <Icon icon={twitterSquare} className="twitter" size={30} />
+              <Icon
+                icon={facebookSquare}
+                onClick={() => {
+                  window.location.href = props.site.facebook_link;
+                }}
+                className="facebook"
+                size={30}
+              />
+              <Icon
+                icon={instagram}
+                onClick={() => {
+                  window.location.href = props.site.instagram_link;
+                }}
+                className="instagram"
+                size={30}
+              />
+              <Icon
+                icon={twitterSquare}
+                onClick={() => {
+                  window.location.href = props.site.twitter_link;
+                }}
+                className="twitter"
+                size={30}
+              />
             </div>
           </div>
           <div className="footer_top_right">
@@ -59,4 +82,8 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+const mapStateToProps = (state) => ({
+  site: state.site,
+});
+
+export default connect(mapStateToProps)(Footer);

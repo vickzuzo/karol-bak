@@ -11,6 +11,7 @@ const GallerySchema = new mongoose.Schema(
     },
     image: { type: String },
     category: { type: String },
+    feature: { type: Boolean },
   },
   {
     timestamps: true,

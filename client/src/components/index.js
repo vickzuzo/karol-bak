@@ -10,6 +10,7 @@ export { default as PageHeader } from "./pageheader/PageHeader";
 export { default as Input } from "./input/Input";
 export { default as TextArea } from "./input/TextArea";
 export { default as AlertBox } from "./alertbox/AlertBox";
+export { default as GalleryCategory } from "./gallery/GalleryCategory";
 
 // ADMIN EXPORTS
 export { default as EditProductModal } from "./modal/EditProductModal";

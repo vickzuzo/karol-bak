@@ -11,7 +11,7 @@ exports.fetchGallery = async (req, res, next) => {
 };
 
 exports.createGallery = async (req, res, next) => {
-  const { title, description, category } = req.body;
+  const { title, description, category, feature } = req.body;
   const image = req.file.path;
   try {
     const gallery = await Gallery.create({
@@ -19,6 +19,7 @@ exports.createGallery = async (req, res, next) => {
       description,
       image,
       category,
+      feature,
     });
     res.send({ success: true, gallery });
   } catch (err) {

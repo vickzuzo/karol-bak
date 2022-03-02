@@ -27,6 +27,7 @@ const EditGalleryModal = (props) => {
     const { value } = e.target;
     setCategory(value);
   };
+  const [feature, setFeature] = useState(false);
 
   return (
     <Modal
@@ -62,12 +63,22 @@ const EditGalleryModal = (props) => {
             type="file"
             title="Carousel Images (can select multiple)"
           />
-          <div className="add_product_images_preview_container">
-            {/* <img
-              src={URL.createObjectURL(selectedImage)}
-              alt="product_preview"
-            /> */}
-          </div>
+
+          <label
+            style={{
+              marginBottom: "20px",
+              display: "block",
+            }}
+          >
+            <input
+              type="checkbox"
+              defaultChecked={feature}
+              onChange={() => setFeature(!feature)}
+              style={{ marginRight: "10px" }}
+            />
+            Feature Gallery
+          </label>
+          
         </form>
         <div className="button_flex_group">
           <button className="button" onClick={props.closeModal}>

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { History } from "../../routers/AppRouter";
+import imageDark from "../../assets/images/KBlogo-black.png";
+import imageLight from "../../assets/images/KBlogo-white.png";
+import { connect } from "react-redux";
 
 const HeaderDesktop = (props) => {
   const { space } = props;
-  const logo = "https://karolbak.com/wp-content/uploads/2020/05/logo_www.png";
 
   const [headerChange, setHeaderChange] = useState(false);
 
@@ -36,6 +38,14 @@ const HeaderDesktop = (props) => {
     "frescosSketches",
     "Copperplate",
   ];
+
+  const handleMouseEnter = (e) => {
+   setShowDropDown(true)
+  };
+
+  const handleMouseLeave = (e) => {
+    setShowDropDown(false);
+  };
 
   return (
     <div>
@@ -84,16 +94,18 @@ const HeaderDesktop = (props) => {
                 className="logo"
               >
                 <img
-                  src={logo}
+                  src={props.site.theme === true ? imageLight : imageDark}
                   className="logo_img"
-                  alt="princessMel Importation Services Logo"
+                  alt="KarolBak Logo"
                 />
               </div>
 
               <div style={{ display: "flex" }}>
                 <div
                   className="header_icon__container"
-                  onClick={toggleDropdown}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onClick={() => History.push("/gallery")}
                 >
                   <p>Gallery</p>
                   {showDropDown === true && (
@@ -162,4 +174,8 @@ const HeaderDesktop = (props) => {
   );
 };
 
-export default HeaderDesktop;
+const mapStateToProps = (state) => ({
+  site: state.site,
+});
+
+export default connect(mapStateToProps)(HeaderDesktop);

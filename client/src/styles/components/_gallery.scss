@@ -33,7 +33,7 @@
 
   & .gallery_item_title {
     font-size: 18px;
-    color: darken($white, 20);
+    // color: darken($white, 20);
     transition: 0.4s ease;
   }
   & .gallery_item_desc {
@@ -44,7 +44,7 @@
 
   &:hover {
     .gallery_item_title {
-      color: darken($white, 50);
+      // color: darken($white, 50);
     }
     img {
       opacity: 1;
