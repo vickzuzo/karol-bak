@@ -102,7 +102,7 @@ const HeaderMobile = (props) => {
             </div>
             <div
               className="header_mobile__menu_container"
-              onClick={() => History.push("/gallery")}
+              onClick={() => History.push("/gallery-mobile")}
             >
               <p>Gallery</p>
             </div>

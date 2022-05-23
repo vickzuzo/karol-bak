@@ -69,9 +69,9 @@ const AppRouter = (props) => {
           {/** =============== GENERAL SCREEN ROUTES STARTS HERE =============== */}
           <Route path="/" component={HomeScreen} exact={true} />
           <Route path="/biography" component={BiographyScreen} />
-          <Route path="/gallery" component={AllGalleryScreen} exact />
-          <Route path="/gallery-m" component={GalleryScreenMobile} exact />
-          <Route path="/gallery/category/:id" component={GalleryScreen} exact />
+          <Route path="/gallery/category/:id" component={GalleryScreen} />
+          <Route path="/all-gallery" component={AllGalleryScreen} exact />
+          <Route path="/mobile" component={GalleryScreenMobile} />
           <Route path="/shop" component={ShopScreen} />
           <Route path="/nft" component={NftScreen} />
           <Route path="/news" component={NewsScreen} exact />

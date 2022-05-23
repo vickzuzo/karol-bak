@@ -17,6 +17,9 @@ const storage = new CloudinaryStorage({
     folder: "KAROL-BAK",
     format: async () => "png",
     public_id: (req, file) => file.filename,
+    transformation: {
+      quality: 80,
+    },
   },
 });
 

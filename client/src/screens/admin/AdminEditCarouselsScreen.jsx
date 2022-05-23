@@ -150,7 +150,7 @@ const AdminEditCarouselsScreen = (props) => {
                 <Input
                   onChange={handleImageChange}
                   type="file"
-                  title="Carousel Image"
+                  title="Carousel Image (< 4MB)"
                 />
                 <div className="input_container">
                   <button className="input_button" onClick={onSubmit}>

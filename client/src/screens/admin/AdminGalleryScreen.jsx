@@ -192,7 +192,7 @@ const AdminGalleryScreen = (props) => {
                 <Input
                   onChange={handleImageChange}
                   type="file"
-                  title="Gallery Image"
+                  title="Gallery Image (< 4MB)"
                 />
                 <label
                   style={{

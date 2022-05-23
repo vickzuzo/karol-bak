@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { History } from "../../routers/AppRouter";
-import imageDark from "../../assets/images/KBlogo-black.png";
-import imageLight from "../../assets/images/KBlogo-white.png";
+import imageDark from "../../assets/svg/KBlogo-brown.svg";
+import imageLight from "../../assets/svg/KBlogo-white-w-outline.svg";
 import { connect } from "react-redux";
 
 const HeaderDesktop = (props) => {
@@ -105,9 +105,8 @@ const HeaderDesktop = (props) => {
                   className="header_icon__container"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
-                  onClick={() => History.push("/gallery")}
                 >
-                  <p>Gallery</p>
+                  <p onClick={() => History.push("/all-gallery")}>Gallery</p>
                   {showDropDown === true && (
                     <ul className="header_dropdown_container">
                       <div className="header_dropdown_year">

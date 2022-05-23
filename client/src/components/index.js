@@ -11,6 +11,7 @@ export { default as Input } from "./input/Input";
 export { default as TextArea } from "./input/TextArea";
 export { default as AlertBox } from "./alertbox/AlertBox";
 export { default as GalleryCategory } from "./gallery/GalleryCategory";
+export { default as ViewImageModal } from "./modal/ViewImageModal";
 
 // ADMIN EXPORTS
 export { default as EditProductModal } from "./modal/EditProductModal";

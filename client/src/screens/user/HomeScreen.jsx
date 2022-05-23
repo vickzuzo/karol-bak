@@ -7,6 +7,7 @@ import {
   GalleryItem,
   Header,
   SectionHeader,
+  ViewImageModal,
 } from "../../components";
 // import { History } from "../../routers/AppRouter";
 import {
@@ -25,14 +26,29 @@ const HomeScreen = (props) => {
   };
 
   const [featured, setFeatured] = useState([]);
+  const [image, setImage] = useState();
 
-  console.log(featured);
+  // console.log(featured);
 
   useEffect(() => {
     props.fetchSiteData();
     props.fetchGalleyData();
     setFeatured(filterGallery());
   }, []);
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = (image) => {
+    setImage(image);
+    setModalIsOpen(true);
+  };
+
+  const closeModal = (e) => {
+    e.preventDefault();
+    setModalIsOpen(false);
+  };
+
+  console.log(modalIsOpen);
 
   return (
     <div>
@@ -45,6 +61,7 @@ const HomeScreen = (props) => {
         <div className="gallery_container">
           {featured.map((gallery, index) => (
             <div
+              onClick={() => openModal(gallery.image)}
               key={index}
               className="gallery_item_container"
               key={props.index}
@@ -61,6 +78,11 @@ const HomeScreen = (props) => {
       <div style={{ marginTop: "100px" }}>
         <Footer />
       </div>
+      <ViewImageModal
+        image={image}
+        modalIsOpen={modalIsOpen}
+        closeModal={closeModal}
+      />
     </div>
   );
 };
